@@ -1,0 +1,183 @@
+{
+  "$schema": "https://www.raycast.com/schemas/extension.json",
+  "name": "npmx-search",
+  "description": "Search package information using npmx.dev APIs",
+  "categories": [
+    "Developer Tools"
+  ],
+  "license": "MIT",
+  "author": "oskarlebuda",
+  "scripts": {
+    "build": "ray build -e dist",
+    "dev": "ray develop",
+    "test:tscheck": "tsgo --noEmit",
+    "test:lint": "oxlint . --type-check && oxfmt --check",
+    "lint:fix": "oxlint --fix . && oxfmt --no-error-on-unmatched-pattern",
+    "publish": "npx @raycast/api@latest publish"
+  },
+  "dependencies": {
+    "@raycast/api": "1.104.6",
+    "@raycast/utils": "2.2.2",
+    "git-url-parse": "16.1.0",
+    "tiny-relative-date": "2.0.2",
+    "use-debounce": "10.1.0"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "20.4.1",
+    "@commitlint/config-conventional": "20.4.1",
+    "@types/node": "25.2.3",
+    "@types/react": "19.2.14",
+    "@typescript/native-preview": "7.0.0-dev.20260215.1",
+    "oxfmt": "0.32.0",
+    "oxlint": "1.47.0",
+    "simple-git-hooks": "^2.13.1",
+    "typescript": "5.9.3"
+  },
+  "simple-git-hooks": {
+    "pre-commit": "pnpm pre-commit",
+    "commit-msg": "pnpm commitlint --edit $1",
+    "pre-push": "pnpm test && pnpm test:tscheck"
+  },
+  "lint-staged": {
+    "*.{js,ts}": [
+      "oxlint --fix",
+      "oxfmt --no-error-on-unmatched-pattern"
+    ]
+  },
+  "icon": "extension-icon.png",
+  "commands": [
+    {
+      "name": "search",
+      "title": "Search Packages",
+      "subtitle": "npmx",
+      "description": "Search package metadata powered by npmx.dev",
+      "mode": "view"
+    }
+  ],
+  "platforms": [
+    "macOS",
+    "Windows"
+  ],
+  "preferences": [
+    {
+      "name": "defaultCopyAction",
+      "type": "dropdown",
+      "data": [
+        {
+          "title": "yarn",
+          "value": "yarn"
+        },
+        {
+          "title": "npm",
+          "value": "npm"
+        },
+        {
+          "title": "pnpm",
+          "value": "pnpm"
+        },
+        {
+          "title": "bun",
+          "value": "bun"
+        }
+      ],
+      "title": "Default Package Manager",
+      "description": "The package manager to use by default",
+      "required": false,
+      "default": "npm",
+      "value": "npm"
+    },
+    {
+      "name": "secondaryCopyAction",
+      "type": "dropdown",
+      "data": [
+        {
+          "title": "yarn",
+          "value": "yarn"
+        },
+        {
+          "title": "npm",
+          "value": "npm"
+        },
+        {
+          "title": "pnpm",
+          "value": "pnpm"
+        },
+        {
+          "title": "bun",
+          "value": "bun"
+        }
+      ],
+      "title": "Secondary Package Manager",
+      "description": "The secondary package manager to use",
+      "required": false,
+      "default": "yarn",
+      "value": "yarn"
+    },
+    {
+      "name": "defaultOpenAction",
+      "type": "dropdown",
+      "data": [
+        {
+          "title": "Open Repository",
+          "value": "openRepository"
+        },
+        {
+          "title": "Open Homepage",
+          "value": "openHomepage"
+        },
+        {
+          "title": "npm Package Page",
+          "value": "npmPackagePage"
+        },
+        {
+          "title": "npmx Package Page",
+          "value": "npmxPackagePage"
+        }
+      ],
+      "title": "Default Open Action",
+      "description": "How to open the selected package when Enter is pressed",
+      "required": false,
+      "default": "npmxPackagePage",
+      "value": "npmxPackagePage"
+    },
+    {
+      "name": "historyCount",
+      "type": "textfield",
+      "title": "History Count",
+      "description": "How many items to store in your history",
+      "required": false,
+      "default": "30",
+      "value": "30"
+    },
+    {
+      "name": "showLinkToSearchResultsInListView",
+      "type": "checkbox",
+      "label": "Show link in list view",
+      "title": "Show link to npmx.dev results in list view",
+      "description": "Show link to npmx.dev search results in list view",
+      "required": false,
+      "value": true,
+      "default": true
+    },
+    {
+      "name": "searchStrategy",
+      "type": "dropdown",
+      "title": "Search Strategy",
+      "description": "Choose how package suggestions are sourced before enrichment",
+      "required": false,
+      "default": "hybrid",
+      "value": "hybrid",
+      "data": [
+        {
+          "title": "Hybrid (OpenSearch + Enrichment)",
+          "value": "hybrid"
+        },
+        {
+          "title": "OpenSearch Suggestions Only",
+          "value": "opensearch"
+        }
+      ]
+    }
+  ],
+  "title": "npmx.dev Search"
+}

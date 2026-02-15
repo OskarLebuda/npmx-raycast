@@ -1,0 +1,30 @@
+{
+  "$schema": "./node_modules/oxfmt/configuration_schema.json",
+
+  // Ignore patterns
+  "ignorePatterns": ["pnpm-lock.yaml"],
+
+  // Roles
+  "singleQuote": true,
+  "semi": true,
+  "trailingComma": "all",
+  "tabWidth": 2,
+  "printWidth": 130,
+
+  // Experimental: Sort imports
+  "experimentalSortImports": {
+    "groups": [
+      ["^node:"],
+      ["builtin"],
+      ["external"],
+      ["parent"],
+      ["sibling"],
+      ["index"],
+      ["external-type", "internal-type", "parent-type", "sibling-type", "index-type"]
+    ],
+    "ignoreCase": true,
+    "newlinesBetween": false,
+    "order": "asc",
+    "sortSideEffects": false
+  }
+}
