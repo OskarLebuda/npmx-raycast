@@ -28,14 +28,6 @@ Raycast extension for searching npm packages with data from the [npmx.dev](https
 - Copy install commands for `npm`, `yarn`, `pnpm`, and `bun`.
 - Persist search/package history with configurable history size.
 
-## Screenshots
-
-<!-- Replace placeholders with real screenshots when ready -->
-
-![Search results placeholder](./assets/screenshots/search-results.png)
-![Package actions placeholder](./assets/screenshots/package-actions.png)
-![README preview placeholder](./assets/screenshots/readme-preview.png)
-
 ## Preferences
 
 The extension supports configurable preferences in Raycast:
