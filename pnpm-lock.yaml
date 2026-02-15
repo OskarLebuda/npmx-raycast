@@ -17,9 +17,6 @@ importers:
       git-url-parse:
         specifier: 16.1.0
         version: 16.1.0
-      tiny-relative-date:
-        specifier: 2.0.2
-        version: 2.0.2
       use-debounce:
         specifier: 10.1.0
         version: 10.1.0(react@19.0.0)
@@ -1151,9 +1148,6 @@ packages:
     resolution: {integrity: sha512-MpUEN2OodtUzxvKQl72cUF7RQ5EiHsGvSsVG0ia9c5RbWGL2CI4C7EpPS8UTBIplnlzZiNuV56w+FuNxy3ty2Q==}
     engines: {node: '>=10'}
 
-  tiny-relative-date@2.0.2:
-    resolution: {integrity: sha512-rGxAbeL9z3J4pI2GtBEoFaavHdO4RKAU54hEuOef5kfx5aPqiQtbhYktMOTL5OA33db8BjsDcLXuNp+/v19PHw==}
-
   tinyexec@1.0.2:
     resolution: {integrity: sha512-W/KYk+NFhkmsYpuHq5JykngiOCnxeVL8v8dFnqxSD8qEEdRfXk1SDM6JzNqcERbcGYj9tMrDQBYV9cjgnunFIg==}
     engines: {node: '>=18'}
@@ -2140,8 +2134,6 @@ snapshots:
   supports-color@8.1.1:
     dependencies:
       has-flag: 4.0.0
-
-  tiny-relative-date@2.0.2: {}
 
   tinyexec@1.0.2: {}
 

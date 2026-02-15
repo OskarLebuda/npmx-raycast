@@ -19,7 +19,6 @@
     "@raycast/api": "1.104.6",
     "@raycast/utils": "2.2.2",
     "git-url-parse": "16.1.0",
-    "tiny-relative-date": "2.0.2",
     "use-debounce": "10.1.0"
   },
   "devDependencies": {
